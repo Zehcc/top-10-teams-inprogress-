@@ -8,6 +8,8 @@ const { configCloudinary } = require('./src/utils/cloudinary/config');
 
 const TeamRoutes = require('./src/api/teams/teams.routes');
 const PlayerRoutes = require('./src/api/players/players.routes');
+const UserRoutes = require('./src/api/users/users.routes');
+
 
 const PORT = process.env.PORT || 8080;
 
@@ -16,8 +18,14 @@ const app = express();
 connect();
 configCloudinary();
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH')
+    res.header('Access-Control-Allow-Credentials', true)
+    res.header('Access-Control-Allow-Headers', 'Content-Type')
+    next()
+})
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:4200'],
+    origin: ['http://localhost:3000', 'http://localhost:4200', 'http://127.0.0.1:5500'],
     credentials: true
 }));
 
@@ -30,10 +38,11 @@ app.use(express.urlencoded({
 
 app.use('/api/teams', TeamRoutes);
 app.use('/api/players', PlayerRoutes);
+app.use('/api/users', UserRoutes)
 
-app.use('/api', (req, res, next) => {
+/* app.use('/api', (req, res, next) => {
     return res.json(documentation);
-});
+}); */
 
 app.use('*', (req, res, next) => {
     const error = new Error();

@@ -1,0 +1,112 @@
+body {
+    background-color: #666666;
+background-image: url("https://www.transparenttextures.com/patterns/black-thread.png");
+color: #58CD36
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+header > h1 {
+    font-size: 40px;
+}
+
+.teamsList {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.teamItem {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 300px;
+    margin: 0px 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgDiv {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.textDiv > h2 {
+    margin-bottom: 5px;
+}
+
+.textDiv > h3 {
+    margin-top: 5px;
+}
+
+.imgDiv > img {
+    height: 200px;
+    width: 200px;
+}
+
+.teamLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px 60px 0px;
+}
+
+.teamLogo > img {
+    width: 250px;
+    height: 250px;
+}
+
+.playersList {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.playersItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 500px;
+    margin: 15px;
+}
+
+.playerImg {
+    height: 70%;
+}
+
+.playerImg >img {
+    width: 100%;
+    height: 100%;
+}
+
+.playerText {
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerText > h2 {
+    margin: 5px 0px;
+}
+
+.playerText > p {
+    margin: 5px;
+}

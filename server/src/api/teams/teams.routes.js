@@ -1,4 +1,5 @@
 const TeamRoutes = require('express').Router();
+const { isAuth } = require('../../middlewares/auth.middleware');
 const upload = require('../../middlewares/updateFile.middleware');
 
 const {
@@ -11,8 +12,8 @@ const {
 
 TeamRoutes.get('/', getAll);
 TeamRoutes.get('/:id', getOne);
-TeamRoutes.post('/', upload.single('img'), postOne);
-TeamRoutes.patch('/:id', upload.single('img'), patchOne);
-TeamRoutes.delete('/:id', deleteOne);
+TeamRoutes.post('/', upload.single('img'), [isAuth], postOne);
+TeamRoutes.patch('/:id', upload.single('img'), [isAuth], patchOne);
+TeamRoutes.delete('/:id', [isAuth], deleteOne);
 
 module.exports = TeamRoutes;
