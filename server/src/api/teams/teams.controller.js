@@ -28,7 +28,7 @@ const postOne = async (req, res, next) => {
         team.year = req.body.year;
         team.stadium = req.body.stadium;
         team.players = req.body.players;
-        if (req.file) team.img = req.file.path
+        if (req.file) team.img = req.file.path;
         const teamDB = await team.save();
         return res.status(201).json(teamDB)
     } catch (error) {
@@ -42,6 +42,7 @@ const patchOne = async (req, res, next) => {
         const team = new Team();
         team.name = req.body.name;
         team.year = req.body.year;
+        team.stadium = req.body.stadium;
         team.players = req.body.players;
         if (req.file) team.img = req.file.path
         team._id = id;
