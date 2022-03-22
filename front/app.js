@@ -30,7 +30,7 @@ const paintTeams = (teams) => {
     for (const team of teams) {
         const teamItem = document.createElement('div');
         teamItem.className = 'teamDiv';
-        teamItem.innerHTML = `<li class="teamItem"><div class="imgDiv"><img class="team${team._id}" src="${team.img}" alt="${team.name}"></div><div class="textDiv"><h2>${team.name}</h2><h3>${team.stadium}</div></li>`;
+        teamItem.innerHTML = `<li class="teamItem"><div class="imgDiv"><img class="team${team._id}" src="${team.img}" alt="${team.name}"></div><div class="textDiv"><h2>${team.name}</h2><h3>${team.stadium}</h3><h3>${team.year}</div></li>`;
         document.querySelector('.teamsList').appendChild(teamItem);
         document.querySelector(`.team${team._id}`).addEventListener('click', () => paintTeam(team._id))
     }

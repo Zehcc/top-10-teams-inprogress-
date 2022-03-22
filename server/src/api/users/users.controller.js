@@ -13,7 +13,7 @@ const register = async (req, res, next) => {
         const userDB = await user.save();
         return res.status(201).json(userDB.name)
     } catch (error) {
-        return next(error)
+        return next(setError(404, 'No se ha podido crear el usuario'))
     }
 }
 
@@ -21,7 +21,7 @@ const login = async (req, res, next) => {
     try {
         const user = await User.findOne({ email: req.body.email });
         if (!user) {
-            return next(setError(404, 'No se ha podido logear'))
+            return next(setError(404, 'No estas registrado'))
         }
         if (bcrypt.compareSync(req.body.password, user.password)) {
             const token = generateToken(user._id, user.email);
@@ -37,7 +37,7 @@ const logout = (req, res, next) => {
         const token = null;
         return res.status(201).json(token)
     } catch (error) {
-        return next(error)
+        return next(setError(404, 'Fallo al deslogear'))
     }
 }
 
