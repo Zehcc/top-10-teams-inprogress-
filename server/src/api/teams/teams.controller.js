@@ -7,7 +7,7 @@ const getAll = async (req, res, next) => {
         const teams = await Team.find().populate('players');
         res.status(200).json(teams);
     } catch (error) {
-        return next(error)
+        return next(setError(404, 'No se han podido recuperar los equipos'))
     }
 }
 
@@ -17,7 +17,7 @@ const getOne = async (req, res, next) => {
         const team = await Team.findById(id).populate('players');
         res.status(200).json(team);
     } catch (error) {
-        return next(setError(404, 'No se ha podido recuperar el usuario'))
+        return next(setError(404, 'No se ha podido recuperar el equipo'))
     }
 }
 
@@ -32,7 +32,7 @@ const postOne = async (req, res, next) => {
         const teamDB = await team.save();
         return res.status(201).json(teamDB)
     } catch (error) {
-        return next(setError(404, 'No se ha podido crear el usuario'))
+        return next(setError(404, 'No se ha podido crear el equipo'))
     }
 }
 
@@ -49,7 +49,7 @@ const patchOne = async (req, res, next) => {
         const updateTeam = await Team.findByIdAndUpdate(id, team);
         return res.status(200).json(updateTeam);
     } catch (error) {
-        return next(setError(404, 'No se ha podido modificar el usuario'));
+        return next(setError(404, 'No se ha podido modificar el equipo'));
     }
 }
 
@@ -60,7 +60,7 @@ const deleteOne = async (req, res, next) => {
         if (team.img) deleteFile(team.img)
         return res.status(200).json(team);
     } catch (error) {
-        return next(setError(404, 'No se ha podido borrar el usuario'));
+        return next(setError(404, 'No se ha podido borrar el equipo'));
     }
 }
 
