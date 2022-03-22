@@ -1,6 +1,5 @@
 const urlTeams = 'http://localhost:8000/api/teams'
 let teams = [];
-let players = [];
 window.onload = () => {
     init();
 }
@@ -8,7 +7,7 @@ window.onload = () => {
 const init = async () => {
     document.querySelector('main').innerHTML = '';
     await getTeams();
-    await paintTeams();
+    paintTeams();
 }
 
 const getTeams = async() => {
