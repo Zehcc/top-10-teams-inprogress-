@@ -1,2 +1,2 @@
-# top-10-teams-inprogress-
-Api con  api rest de los 10 mejores equipos en el ranking
+# top-team-projects
+Api full funcional con front y backend con los mejores equipos y su plantilla.
